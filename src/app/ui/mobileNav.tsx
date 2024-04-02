@@ -1,9 +1,10 @@
 'use client'
 
-import { Box, Button, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
+import { Box, Drawer, IconButton } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import Image from "next/image"
 import { useState } from "react"
+import Link from "next/link"
 
 export default function MobileNavbar() {
   const [open, setOpen] = useState(false)
@@ -13,23 +14,20 @@ export default function MobileNavbar() {
   }
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List>
-      <Image 
-                    src="/public/logotransparent.png"
-                    width={50}
-                    height={50}
-                    alt="Revived Relics" 
-                />
-        {['Home', 'About', 'Projects', 'Contact'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+    <Box sx={{ width: 200 }} role="presentation" onClick={toggleDrawer(false)}>
 
+      <div className="flex flex-col items-center space-y-4">
+      <Image 
+        src="/logotransparent.png"
+        width={50}
+        height={50}
+        alt="Revived Relics" 
+      />
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/projects">Projects</Link>
+        <Link href="/contact">Contact</Link>
+      </div>
     </Box>
   )
 

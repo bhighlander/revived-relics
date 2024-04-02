@@ -10,7 +10,7 @@ export default function Navbar() {
             </div>
             <div className="flex items-center">
                 <Image 
-                    src="/public/logotransparent.png"
+                    src="/logotransparent.png"
                     width={50}
                     height={50}
                     alt="Revived Relics" 
