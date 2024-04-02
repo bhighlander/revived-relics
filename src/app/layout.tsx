@@ -5,6 +5,7 @@ import Navbar from "./ui/navbar";
 import Footer from "./ui/footer";
 import MobileNavbar from "./ui/mobileNav";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
