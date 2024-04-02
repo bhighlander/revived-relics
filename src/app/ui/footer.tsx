@@ -8,21 +8,24 @@ export default function Footer() {
         <Link href="/about">Contact Info</Link>
       </div>
 
-      <div className="__contact-footer__ flex flex-col items-center md:items-end space-y-2"></div>
-      <Link href="/contact">Get in Touch</Link>
-      <form className="__email-form__ flex flex-col space-y-2">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="__email-field__ p-2 rounded bg-white text-black"
-        />
-        <button
-          type="submit"
-          className="__submit-button__ p-2 bg-blue-600 hover:bg-blue-700 rounded text-white"
-        >
-          Submit
-        </button>
-      </form>
+      {/* Right section for Get in Touch and form */}
+      <div className="__in-touch__ flex flex-col md:flex-row md:items-end md:justify-end space-y-2">
+        {/* This div will align to the right on medium screens and up */}
+        <div className="md:mr-4">Get in Touch</div>
+        <form className="__email-form__ flex space-x-2">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="__email-field__ p-2 rounded bg-white text-black"
+          />
+          <button
+            type="submit"
+            className="__submit-button__ p-2 bg-blue-600 hover:bg-blue-700 rounded text-white"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
