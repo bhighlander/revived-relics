@@ -22,6 +22,7 @@ export default function RootLayout({
       <head></head>
       <body className={inter.className}>
         {/* <Navbar /> */}
+        {/* temporarily initiated MobileNavbar component for testing and styling */}
         <MobileNavbar />
         <main>{children}</main>
         <Footer />

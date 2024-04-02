@@ -1,6 +1,8 @@
 'use client'
 
-import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
+import { Box, Button, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
+import MenuIcon from "@mui/icons-material/Menu"
+import Image from "next/image"
 import { useState } from "react"
 
 export default function MobileNavbar() {
@@ -13,6 +15,12 @@ export default function MobileNavbar() {
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
+      <Image 
+                    src="/public/logotransparent.png"
+                    width={50}
+                    height={50}
+                    alt="Revived Relics" 
+                />
         {['Home', 'About', 'Projects', 'Contact'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -27,7 +35,9 @@ export default function MobileNavbar() {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>Open Drawer</Button>
+      <IconButton onClick={toggleDrawer(true)}>
+        <MenuIcon />
+      </IconButton>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
