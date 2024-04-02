@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
-export default function Navbar() {
+// Desktop navbar component
+const Navbar: React.FC = () => {
+    // returns desktop navbar if screen size is not mobile based on media query in globals.css
     return (
-        <div className="flex items-center justify-between bg-gray-800 text-white p-4">
+        <div className="navbar flex items-center justify-between bg-gray-800 text-white p-4">
             <div className="flex items-center space-x-4">
                 <Link href="/">Home</Link>
                 <Link href="/about">About</Link>
@@ -23,3 +26,5 @@ export default function Navbar() {
         </div>
     );
 }
+
+export default Navbar
