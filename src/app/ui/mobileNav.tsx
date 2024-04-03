@@ -19,13 +19,15 @@ const MobileNavbar: React.FC = () => {
   // contents of drawer with links and logo
   const NavDrawer = (
     <Box
-      sx={{ width: 200 }}
+      sx={{ width: 200, height: '100vh' }}
       role="presentation"
       onClick={toggleDrawer(false)}
-      className="mobile-navbar"
+      className="mobile-navbar nav"
     >
       <div className="flex flex-col items-center space-y-4">
-        <Image src="/logotransparent.png" width={50} height={50} alt="Revived Relics" />
+          <div className="nav-logo">
+            <Image src="/logotransparent.png" width={80} height={80} alt="Revived Relics" />
+          </div>
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
         <Link href="/projects">Projects</Link>
