@@ -5,6 +5,7 @@ import Navbar from "./ui/navbar";
 import Footer from "./ui/footer";
 import MobileNavbar from "./ui/mobileNav";
 
+
 // sets global font to Belleza using google fonts
 const inter = Belleza({ 
   weight: '400',
