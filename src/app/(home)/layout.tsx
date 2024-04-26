@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Belleza } from "next/font/google";
-import "./globals.css";
-import Navbar from "./ui/navbar";
-import Footer from "./ui/footer";
-import MobileNavbar from "./ui/mobileNav";
+// import "@/globals.css";
+import "./../globals.css"
+import Navbar from "../ui/navbar";
+import Footer from "../ui/footer";
+import MobileNavbar from "../ui/mobileNav";
 
 
 // sets global font to Belleza using google fonts
