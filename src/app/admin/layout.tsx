@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Belleza } from "next/font/google";
-import AdminPage from "./page";
 
 const inter = Belleza({ 
   weight: '400',
