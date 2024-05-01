@@ -28,3 +28,21 @@ body {
   display: none;
 }
 }
+
+/* image carousel settings */
+.slide img {
+  width: 100rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.slide {
+  transform: scale(0.7);
+  transition: transform 300ms;
+  opacity: .7;
+}
+
+.activeSlide {
+  transform: scale(1);
+  opacity: 1;
+}

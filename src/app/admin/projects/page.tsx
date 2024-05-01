@@ -1,5 +1,5 @@
 import { list } from "@vercel/blob";
-import DeleteProjectButton from "../components/deleteProjectButton";
+import DeleteProjectButton from "../adminComponents/deleteProjectButton";
 
 export default async function AllProjectsPage() {
   const { blobs } = await list();
