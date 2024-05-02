@@ -22,7 +22,6 @@ export default function HomeCarousel() {
 
   const settings = {
     infinite: true,
-    lazyLoad: true,
     swipeToSlide: true,
     focusOnSelect: true,
     speed: 300,
