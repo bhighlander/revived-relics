@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material';
-import ContactForm from './contactForm';
+import ContactForm from '../../homeUi/contactForm';
 
 export default function ContactPage() {
 
