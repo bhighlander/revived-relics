@@ -22,6 +22,9 @@ export default function HomeCarousel() {
 
   const settings = {
     infinite: true,
+    lazyLoad: true,
+    swipeToSlide: true,
+    focusOnSelect: true,
     speed: 300,
     slidesToShow: 1,
     centerMode: true,
@@ -30,14 +33,16 @@ export default function HomeCarousel() {
   };
 
   return (
-    <div style={{ width: '70%', margin: '0 auto', height: '50vh' }}> {/* Updated styles */}
-      <Slider {...settings}>
-        {images?.map((img, idx) => (
-          <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
-            <Image src={img} alt={`Slide ${idx + 1}`} width={500} height={500} />
-          </div>
-        ))}
-      </Slider>
+    <div style={{ marginTop: 100 }}>
+      <div style={{ width: '70%', margin: '0 auto', height: '50vh' }}>
+        <Slider {...settings}>
+          {images?.map((img, idx) => (
+            <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
+              <Image src={img} alt={`Slide ${idx + 1}`} width={500} height={500} />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 }
