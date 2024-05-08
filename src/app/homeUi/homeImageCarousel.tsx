@@ -1,24 +1,29 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import { GET } from "./../admin/upload/api/image/route"
-import cyber1 from "../../assets/cyber1.jpg"
-import cyber2 from "../../assets/cyber2.jpg"
-import cyber4 from "../../assets/cyber4.jpg"
 import Image from "next/image";
+import { fetchImages } from "@/api/imageUploadManager";
 
-// temporarily implementing hardcoded images until api is fixed
-const images = [cyber1, cyber2, cyber4];
 
 export default function HomeCarousel() {
-
   const [imageIndex, setImageIndex] = useState(0)
+  const [images, setImages] = useState<string[]>([]);
 
-  // temporarily disabling images state until api is fixed
-  // const [images, setImages] = useState([]);
+  useEffect(() => {
+    const fetchAllImages = async () => {
+      try {
+        const imageUrls = await fetchImages();
+        setImages(imageUrls);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    fetchAllImages(); 
+  }, []);
 
   const settings = {
     infinite: true,
