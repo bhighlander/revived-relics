@@ -1,46 +1,51 @@
-'use client';
+'use client'
 
-import type { PutBlobResult } from '@vercel/blob';
-import { useState, useRef } from 'react';
+import { storage } from '@/app/firebaseConfig';
+import { ref, uploadBytesResumable, UploadTaskSnapshot } from "firebase/storage";
+import { useRouter } from 'next/navigation';
+import { ChangeEvent, useState } from 'react';
 
-export default function AvatarUploadPage() {
-  const inputFileRef = useRef<HTMLInputElement>(null);
-  const [blob, setBlob] = useState<PutBlobResult | null>(null);
+export default function ImageUpload() {
+  const router = useRouter();
+  const [image, setImage] = useState<File | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = (e: { preventDefault: any; }) => {
+    e.preventDefault();
+    if (!image) {
+      setError('Please select an image to upload');
+      return;
+    }
+    const storageRef = ref(storage, `images/${image.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot: UploadTaskSnapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log(`Upload is ${progress}% done`);
+      },
+      error => {
+        console.error(error.message);
+      },
+      () => {
+        console.log("Upload complete");
+      }
+    );
+    router.push('projects');
+  };
+
   return (
-    <>
-      <h1>Upload An Image</h1>
-
-      <form
-        onSubmit={async (event) => {
-          event.preventDefault();
-
-          if (!inputFileRef.current?.files) {
-            throw new Error("No file selected");
-          }
-
-          const file = inputFileRef.current.files[0];
-
-          const response = await fetch(
-            `/admin/upload/api/image?filename=${file.name}`,
-            {
-              method: 'POST',
-              body: file,
-            },
-          );
-
-          const newBlob = (await response.json()) as PutBlobResult;
-
-          setBlob(newBlob);
-        }}
-      >
-        <input name="file" ref={inputFileRef} type="file" required />
-        <button type="submit">Upload</button>
-      </form>
-      {blob && (
-        <div>
-          Blob url: <a href={blob.url}>{blob.url}</a>
-        </div>
-      )}
-    </>
+    <div>
+      <input type='file' onChange={handleChange} />
+      <button onClick={handleUpload}>Upload</button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
   );
 }
