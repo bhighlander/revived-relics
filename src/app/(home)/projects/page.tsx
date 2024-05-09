@@ -1,8 +1,8 @@
-import { ParallaxScrollDemo } from "@/app/homeUi/projectsGridScroll";
+import { ImagesParallaxScroll } from "@/app/homeUi/projectsGridScroll";
 
 
 export default function ProjectsPage() {
     return (
-    <ParallaxScrollDemo />
+    <ImagesParallaxScroll />
     )
 }
