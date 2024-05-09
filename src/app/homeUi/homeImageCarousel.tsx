@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import { fetchImages } from "@/api/imageUploadManager";
+import { fetchRecentImages } from "@/api/imageUploadManager";
 
 
 export default function HomeCarousel() {
@@ -13,16 +13,16 @@ export default function HomeCarousel() {
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
-    const fetchAllImages = async () => {
+    const fetchNewImages = async () => {
       try {
-        const imageUrls = await fetchImages();
+        const imageUrls = await fetchRecentImages();
         setImages(imageUrls);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
     };
 
-    fetchAllImages(); 
+    fetchNewImages(); 
   }, []);
 
   const settings = {

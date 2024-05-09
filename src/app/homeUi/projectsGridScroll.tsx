@@ -1,10 +1,24 @@
+'use client'
+
+import { useEffect, useState } from "react";
 import { ParallaxScroll } from "./parallax-scroll";
-import cyber1 from "../../assets/cyber1.jpg";
-import cyber2 from "../../assets/cyber2.jpg";
-import cyber4 from "../../assets/cyber4.jpg";
+import { fetchImages } from "@/api/imageUploadManager";
 
-const sampleImages = [cyber1, cyber2, cyber4].map(image => image.src);
+export function ImagesParallaxScroll() {
+  const [images, setImages] = useState<string[]>([]);
 
-export function ParallaxScrollDemo() {
-  return <ParallaxScroll images={sampleImages} />;
+  useEffect(() => {
+    const fetchNewImages = async () => {
+      try {
+        const imageUrls = await fetchImages();
+        setImages(imageUrls);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    fetchNewImages(); 
+  }, []);
+
+  return <ParallaxScroll images={images} />;
 }
