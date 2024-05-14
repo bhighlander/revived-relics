@@ -28,9 +28,13 @@ export default function RootLayout({
       <head></head>
       <body className={inter.className}>
         {/* Implements both navbar and mobilenavbar components, will return based on screen size */}
+        <div className="border-2 border-slate-300">
         <Navbar />
+        </div>
         <MobileNavbar />
+        <div className="border-4 border-orange-500 flex-auto">
         <main>{children}</main>
+        </div>
         <Footer />
       </body>
     </html>

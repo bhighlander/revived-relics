@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
+import Slider, { LazyLoadTypes } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
@@ -26,6 +26,7 @@ export default function HomeCarousel() {
   }, []);
 
   const settings = {
+    adaptiveHeight: true,
     infinite: true,
     swipeToSlide: true,
     focusOnSelect: true,
@@ -33,15 +34,42 @@ export default function HomeCarousel() {
     slidesToShow: 1,
     centerMode: true,
     centerPadding: '25%',
-    beforeChange: (_: any, next: React.SetStateAction<number>) => setImageIndex(next)
+    arrows: false,
+    lazyLoad: 'progressive' as LazyLoadTypes,
+    beforeChange: (_: any, next: React.SetStateAction<number>) => setImageIndex(next),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
-    <div style={{ marginTop: 100 }}>
-      <div style={{ width: '70%', margin: '0 auto', height: '50vh' }}>
+    <div className="mx-auto border-2 border-blue-500 size-11/12 flex flex-box">
+      <div className="border-2 border-red-500 w-full h-fit">
         <Slider {...settings}>
           {images?.map((img, idx) => (
-            <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
+            <div key={idx} className= {idx === imageIndex ? "slide activeSlide" : "slide"}>
               <Image src={img} alt={`Slide ${idx + 1}`} width={500} height={500} />
             </div>
           ))}

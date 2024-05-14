@@ -4,7 +4,7 @@
 
 body {
   font: normal 18px Belleza, Arial, sans-serif;
-  background: linear-gradient(to right, #EBD3AE, #B7ACC0)
+  background: linear-gradient(to right, #EBD3AE, #B7ACC0);
 }
 
 .nav, .footer {
@@ -30,7 +30,7 @@ body {
 }
 
 /* image carousel settings */
-.slide img {
+/* .slide img {
   width: 100rem;
   max-width: 100%;
   height: auto;
@@ -45,4 +45,4 @@ body {
 .activeSlide {
   transform: scale(1);
   opacity: 1;
-}
+} */
