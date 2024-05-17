@@ -12,7 +12,6 @@ body {
   color: #EBD3AE;
 }
 
-/* gradient for navbar logo */
 .nav-logo {
   background: radial-gradient(circle at center, #EBD3AE 20%, #553C6B 60%);
   height: 60px;
@@ -22,27 +21,50 @@ body {
   justify-content: center;
 }
 
-/* hides navbar if screen size is mobile */
 @media (max-width: 600px) {
-.navbar {
-  display: none;
-}
+  .navbar {
+    display: none;
+  }
+  .slider-container {
+    height: 100vh; /* Allow the slider to take up more than the full viewport height */
+    max-width: none; /* Remove the maximum height restriction */
+    overflow: visible; /* Allow overflow so that slides can go off the screen */
+    width: 100vh;
+    object-position: right;
+  }
+  .carousel-image {
+    max-height: 50vh; /* Ensure images do not exceed 50% of the viewport height */
+  }
+
 }
 
-/* image carousel settings */
-/* .slide img {
+.slide img {
   width: 100rem;
   max-width: 100%;
-  height: auto;
+  height: fit-content;
 }
 
 .slide {
   transform: scale(0.7);
   transition: transform 300ms;
   opacity: .7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .activeSlide {
   transform: scale(1);
   opacity: 1;
-} */
+}
+
+.slider {
+  height: 100%;
+  width: 100%;
+}
+
+.slider-container {
+  max-height: 80vh; 
+  overflow: hidden; 
+}

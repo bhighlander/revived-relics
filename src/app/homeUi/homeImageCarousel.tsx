@@ -7,9 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import { fetchRecentImages } from "@/api/imageUploadManager";
 
-
 export default function HomeCarousel() {
-  const [imageIndex, setImageIndex] = useState(0)
+  const [imageIndex, setImageIndex] = useState(0);
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
@@ -22,18 +21,18 @@ export default function HomeCarousel() {
       }
     };
 
-    fetchNewImages(); 
+    fetchNewImages();
   }, []);
 
   const settings = {
-    adaptiveHeight: true,
     infinite: true,
     swipeToSlide: true,
-    focusOnSelect: true,
     speed: 300,
-    slidesToShow: 1,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '25%',
+    centerPadding: "25px",
+    focusOnSelect: true,
     arrows: false,
     lazyLoad: 'progressive' as LazyLoadTypes,
     beforeChange: (_: any, next: React.SetStateAction<number>) => setImageIndex(next),
@@ -41,36 +40,44 @@ export default function HomeCarousel() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 3,
+          slidesToShow: 3,
+          slidesToScroll: 1,
           infinite: true,
+          dots: true
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 640,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 2,
+          slidesToShow: 3,
+          slidesToScroll: 1,
           initialSlide: 2
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerPadding: "1px"
         }
       }
     ]
   };
 
   return (
-    <div className="mx-auto border-2 border-blue-500 size-11/12 flex flex-box">
-      <div className="border-2 border-red-500 w-full h-fit">
-        <Slider {...settings}>
+    <div className="home-container flex justify-center items-start pt-10 border-2 border-orange-500 size-full">
+      <div className="slider-container w-4/5 border-2 border-purple-500 mt-10">
+        <Slider {...settings} className="slider border-2 border-yellow-500">
           {images?.map((img, idx) => (
-            <div key={idx} className= {idx === imageIndex ? "slide activeSlide" : "slide"}>
-              <Image src={img} alt={`Slide ${idx + 1}`} width={500} height={500} />
+            <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
+              <Image
+                className="carousel-image border-2 border-green-500"
+                src={img}
+                alt={`Slide ${idx + 1}`}
+                width={800}
+                height={450}
+              />
             </div>
           ))}
         </Slider>

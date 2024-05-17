@@ -32,9 +32,7 @@ export default function RootLayout({
         <Navbar />
         </div>
         <MobileNavbar />
-        <div className="border-4 border-orange-500 flex-auto">
         <main>{children}</main>
-        </div>
         <Footer />
       </body>
     </html>
