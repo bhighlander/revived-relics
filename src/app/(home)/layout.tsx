@@ -4,14 +4,14 @@ import "./../globals.css"
 import Navbar from "../homeUi/navbar";
 import Footer from "../homeUi/footer";
 import MobileNavbar from "../homeUi/mobileNav";
-
+import Image from "next/image";
 
 // sets global font to Belleza using google fonts
 const inter = Belleza({ 
   weight: '400',
   style: 'normal',
   subsets: ['latin']
-  });
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,8 +28,17 @@ export default function RootLayout({
       <head></head>
       <body className={inter.className}>
         {/* Implements both navbar and mobilenavbar components, will return based on screen size */}
-        <Navbar />
-        <MobileNavbar />
+        <div className="home-body">
+          <div className="navbar-container">
+            <div className="menu-button">
+              <MobileNavbar />
+            </div>
+            <div className="nav-logo-mobile">
+              <Image src="/logotransparent.png" width={80} height={80} alt="Revived Relics" />
+            </div>
+            <Navbar />
+          </div>
+        </div>
         <main>{children}</main>
         <Footer />
       </body>

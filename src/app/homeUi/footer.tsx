@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     // used tailwind to fix footer at bottom of window
-    <div className="__footer-background__ footer flex flex-col md:flex-row justify-between text-white p-4 fixed bottom-0 left-0 w-full z-10">
+    <div className="__footer-background__ footer flex flex-col md:flex-row justify-between text-white p-4 fixed bottom-0 left-0 w-full z-10 border-2 border-slate-300">
       <div className="__contact-info__ flex space-x-4">
         <Link href="/about">Contact Info</Link>
       </div>
