@@ -24,10 +24,7 @@ const MobileNavbar: React.FC = () => {
       onClick={toggleDrawer(false)}
       className="mobile-navbar nav"
     >
-      <div className="flex flex-col items-center space-y-4">
-          <div className="nav-logo">
-            <Image src="/logotransparent.png" width={80} height={80} alt="Revived Relics" />
-          </div>
+      <div className="flex flex-col items-center space-y-4 mt-10">
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
         <Link href="/projects">Projects</Link>
@@ -38,11 +35,11 @@ const MobileNavbar: React.FC = () => {
 
   // returns mobile nav drawer if screen size is mobile
   return (
-    <div>
+    <div className="mobile-nav-button">
       {isMobile && (
         <>
           <IconButton onClick={toggleDrawer(true)}>
-            <MenuIcon />
+            <MenuIcon fontSize="large" />
           </IconButton>
           <Drawer open={open} onClose={toggleDrawer(false)}>
             {NavDrawer}

@@ -66,13 +66,16 @@ export default function HomeCarousel() {
   };
 
   return (
-    <div className="home-container flex justify-center items-start pt-10 border-2 border-orange-500 size-full">
-      <div className="slider-container w-4/5 border-2 border-purple-500 mt-10">
-        <Slider {...settings} className="slider border-2 border-yellow-500">
+
+    // try removing all the divs to see if the slider can be forced to cutoff the images to the sides on mobile
+
+    <div className="home-container flex justify-center items-start size-full">
+      <div className="slider-container w-4/5 mt-10">
+        <Slider {...settings} className="slider">
           {images?.map((img, idx) => (
             <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
               <Image
-                className="carousel-image border-2 border-green-500"
+                className="carousel-image"
                 src={img}
                 alt={`Slide ${idx + 1}`}
                 width={800}

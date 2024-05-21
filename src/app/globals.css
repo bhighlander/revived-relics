@@ -21,9 +21,37 @@ body {
   justify-content: center;
 }
 
+.nav-logo-mobile {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .navbar {
     display: none;
+  }
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    position: relative;
+  }
+  .nav-logo-mobile {
+    background: radial-gradient(circle at center, #553C6B 20%, transparent 60%);
+    height: 60px;
+    width: 60px;
+    border-radius: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .menu-button {
+    display: block;
+    justify-content: flex-start;
   }
   .slider-container {
     height: 100vh; /* Allow the slider to take up more than the full viewport height */
@@ -32,7 +60,7 @@ body {
     width: 100vh;
     object-position: right;
   }
-  .carousel-image {
+  .slide {
     max-height: 50vh; /* Ensure images do not exceed 50% of the viewport height */
   }
 
