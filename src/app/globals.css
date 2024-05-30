@@ -19,6 +19,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-logo-mobile {
@@ -70,29 +73,31 @@ body {
   width: 100rem;
   max-width: 100%;
   height: fit-content;
+  border-radius: 3%;
+  margin: 0 auto;
 }
 
 .slide {
   transform: scale(0.7);
   transition: transform 300ms;
   opacity: .7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
 }
 
 .activeSlide {
-  transform: scale(1);
+  transform: scale(.9);
   opacity: 1;
 }
 
 .slider {
   height: 100%;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .slider-container {
   max-height: 80vh; 
   overflow: hidden; 
+  display: flex;
 }

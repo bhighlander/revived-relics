@@ -67,8 +67,6 @@ export default function HomeCarousel() {
 
   return (
 
-    // try removing all the divs to see if the slider can be forced to cutoff the images to the sides on mobile
-
     <div className="home-container flex justify-center items-start size-full">
       <div className="slider-container w-4/5 mt-10">
         <Slider {...settings} className="slider">
