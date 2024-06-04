@@ -2,9 +2,9 @@
 
 import { Button, TextField } from "@mui/material";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
-export default function ContactForm() {
+function ContactForm() {
 const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -83,5 +83,14 @@ const handleSubmit = (event: { preventDefault: () => void; }) => {
             Submit
         </Button>
     </form>
+    )
+}
+
+
+export default function ContactFormWrapper() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ContactForm />
+        </Suspense>
     )
 }
