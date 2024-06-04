@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useEffect, useState } from "react";
 import Slider, { LazyLoadTypes } from "react-slick";
@@ -27,62 +27,45 @@ export default function HomeCarousel() {
   const settings = {
     infinite: true,
     swipeToSlide: true,
-    speed: 300,
+    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: "25px",
+    centerPadding: "0px",
     focusOnSelect: true,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2500,
     lazyLoad: 'progressive' as LazyLoadTypes,
     beforeChange: (_: any, next: React.SetStateAction<number>) => setImageIndex(next),
     responsive: [
       {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
         breakpoint: 640,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          centerPadding: "1px"
+          initialSlide: 1,
+          arrows: true
         }
       }
     ]
   };
 
   return (
-
-    <div className="home-container flex justify-center items-start size-full">
-      <div className="slider-container w-4/5 mt-10">
-        <Slider {...settings} className="slider">
-          {images?.map((img, idx) => (
-            <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
-              <Image
-                className="carousel-image"
-                src={img}
-                alt={`Slide ${idx + 1}`}
-                width={800}
-                height={450}
-              />
-            </div>
-          ))}
-        </Slider>
-      </div>
+    <div className="w-5/6 mx-auto">
+      <Slider {...settings} className="slider">
+        {images?.map((img, idx) => (
+          <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
+            <Image
+              className="w-full h-auto"
+              src={img}
+              alt={`Slide ${idx + 1}`}
+              width={800}
+              height={450}
+            />
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 }

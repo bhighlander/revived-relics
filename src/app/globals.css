@@ -5,6 +5,9 @@
 body {
   font: normal 18px Belleza, Arial, sans-serif;
   background: linear-gradient(to right, #EBD3AE, #B7ACC0);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .nav, .footer {
@@ -28,7 +31,7 @@ body {
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .navbar {
     display: none;
   }
@@ -57,16 +60,30 @@ body {
     justify-content: flex-start;
   }
   .slider-container {
-    height: 100vh; /* Allow the slider to take up more than the full viewport height */
+    height: 50vh; /* Allow the slider to take up more than the full viewport height */
     max-width: none; /* Remove the maximum height restriction */
     overflow: visible; /* Allow overflow so that slides can go off the screen */
     width: 100vh;
     object-position: right;
   }
-  .slide {
-    max-height: 50vh; /* Ensure images do not exceed 50% of the viewport height */
-  }
+}
 
+.home-body {
+  flex-grow: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.footer {
+  background: #553C6B;
+  color: #EBD3AE;
+  text-align: center;
+  padding: 10px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
 }
 
 .slide img {
@@ -78,10 +95,11 @@ body {
 }
 
 .slide {
-  transform: scale(0.7);
+  transform: scale(0.8);
   transition: transform 300ms;
   opacity: .7;
   height: 100%;
+  align-items: center;
 }
 
 .activeSlide {
@@ -89,15 +107,7 @@ body {
   opacity: 1;
 }
 
-.slider {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.slider-container {
-  max-height: 80vh; 
-  overflow: hidden; 
-  display: flex;
+.rr-header, .rr-tag {
+  color: #553C6B;
+  text-shadow: 1px 1px 1px #553C6B80;
 }

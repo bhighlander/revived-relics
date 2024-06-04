@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material';
-import ContactForm from '../../homeUi/contactForm';
+import ContactFormWrapper from '../../homeUi/contactForm';
 
 export default function ContactPage() {
 
@@ -21,7 +21,7 @@ export default function ContactPage() {
                     <br />
                     Complex Glue Job + Patchwork and Color Matching: $175
                 </Typography>
-                <ContactForm />
+                <ContactFormWrapper />
             </Grid>
             <Grid item xs={12} sm={4}>
                 <img src="./logotransparent.png" alt="Logo" style={{ width: '100%' }} />

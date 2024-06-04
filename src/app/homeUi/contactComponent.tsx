@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import React, { useState } from 'react';
 
 export default function ContactComponent() {
@@ -27,24 +26,24 @@ export default function ContactComponent() {
   };
 
   return (
-    <div className="contact-component">
-      <div className="md:mr-4">Get in Touch</div>
-      <form className="__email-form__ flex space-x-2" onSubmit={handleSubmit}>
+    <div className="w-full max-w-md mx-auto p-4 bg-white rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold text-center mb-4">Get in Touch</h2>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Enter your email"
-          className="__email-field__ p-2 rounded bg-white text-black"
+          className="w-full p-2 border rounded"
           value={userEmail}
           onChange={handleEmailChange}
         />
         <button
           type="submit"
-          className="__submit-button__ p-2 bg-blue-600 hover:bg-blue-700 rounded text-white"
+          className="w-full p-2 bg-blue-600 hover:bg-blue-700 rounded text-white"
         >
           Submit
         </button>
+        {emailError && <p className="text-red-500 text-center mt-2">{emailError}</p>}
       </form>
-      {emailError && <p className="text-red-500 mt-2">{emailError}</p>}
     </div>
   );
 }
