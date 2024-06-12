@@ -66,6 +66,12 @@ body {
     width: 100vh;
     object-position: right;
   }
+  .about-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
 }
 
 .home-body {
@@ -110,4 +116,28 @@ main {
 .rr-header, .rr-tag {
   color: #553C6B;
   text-shadow: 1px 1px 1px #553C6B80;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #B7ACC0;
+  color: #553C6B;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #B7ACC0;
+  color: #553C6B;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 100%;
+  margin: 0 auto;
 }

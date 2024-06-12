@@ -5,8 +5,8 @@ export default function ContactPage() {
 
 
     return (
-        <Grid container spacing={3}>
-            <Grid item xs={12} sm={8}>
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={8} className='contact-container shadow-md'>
                 <Typography variant="h4">Contact Us</Typography>
                 <Typography variant="body1">
                     Prices Starting At:
@@ -21,6 +21,8 @@ export default function ContactPage() {
                     <br />
                     Complex Glue Job + Patchwork and Color Matching: $175
                 </Typography>
+            </Grid>
+            <Grid item xs={12} sm={4}>
                 <ContactFormWrapper />
             </Grid>
             <Grid item xs={12} sm={4}>
