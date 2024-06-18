@@ -18,6 +18,7 @@ const Navbar: React.FC = () => {
                         width={80}
                         height={80}
                         alt="Revived Relics"
+                        priority={true}
                     />
                 </div>
             </div>
