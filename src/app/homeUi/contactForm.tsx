@@ -28,17 +28,9 @@ const handleChange = (event: { target: { name: any; value: any; }; }) => {
     });
 };
 
-// need to add handleImageUpload hook
-
-const handleSubmit = (event: { preventDefault: () => void; }) => {
-    event.preventDefault();
-    // Handle form submission here
-    console.log(formData);
-};
-
     return (
-    <form onSubmit={handleSubmit}>
-        <TextField
+<form method="POST" action="https://formsubmit.co/bhighlandcode@gmail.com" encType="multipart/form-data">
+<TextField
             name="name"
             label="Name"
             variant="outlined"
@@ -58,7 +50,7 @@ const handleSubmit = (event: { preventDefault: () => void; }) => {
         />
         <TextField
             name="description"
-            label="Description"
+            label="Detailed description of your project"
             variant="outlined"
             fullWidth
             multiline
@@ -72,17 +64,21 @@ const handleSubmit = (event: { preventDefault: () => void; }) => {
             style={{ display: 'none' }}
             id="image-upload"
             type="file"
-            // need to add onChange for imageuplaoder
+            name="image"
         />
         <label htmlFor="image-upload">
             <Button variant="contained" color="primary" component="span">
                 Upload Image
             </Button>
         </label>
-        <Button type="submit" variant="contained" color="primary">
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <br />
+    <br />
+    <Button type="submit" variant="contained" color="secondary">
             Submit
         </Button>
-    </form>
+</form>
     )
 }
 
