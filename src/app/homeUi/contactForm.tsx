@@ -28,17 +28,9 @@ const handleChange = (event: { target: { name: any; value: any; }; }) => {
     });
 };
 
-// need to add handleImageUpload hook
-
-const handleSubmit = (event: { preventDefault: () => void; }) => {
-    event.preventDefault();
-    // Handle form submission here
-    console.log(formData);
-};
-
     return (
-    <form onSubmit={handleSubmit}>
-        <TextField
+<form method="POST" action="https://formsubmit.co/bhighlandcode@gmail.com" encType="multipart/form-data">
+<TextField
             name="name"
             label="Name"
             variant="outlined"
@@ -58,7 +50,7 @@ const handleSubmit = (event: { preventDefault: () => void; }) => {
         />
         <TextField
             name="description"
-            label="Description"
+            label="Detailed description of your project"
             variant="outlined"
             fullWidth
             multiline
@@ -67,22 +59,33 @@ const handleSubmit = (event: { preventDefault: () => void; }) => {
             value={formData.description}
             onChange={handleChange}
         />
-        <input
-            accept="image/*"
-            style={{ display: 'none' }}
-            id="image-upload"
-            type="file"
-            // need to add onChange for imageuplaoder
-        />
-        <label htmlFor="image-upload">
+        {/* disabled mui image upload button until Choose File button can be restyled */}
+        {/* <label htmlFor="image-upload">
             <Button variant="contained" color="primary" component="span">
                 Upload Image
             </Button>
-        </label>
-        <Button type="submit" variant="contained" color="primary">
-            Submit
-        </Button>
-    </form>
+        </label> */}
+        <div>
+        <label htmlFor="file">Choose an image to upload</label>
+        <br />
+        <input
+            accept="image/*"
+            // style={{ display: 'none' }}
+            id="image-upload"
+            type="file"
+            name="image"
+            placeholder="Upload Image"
+        />
+        </div>
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <br />
+    <br />
+    <Button type="submit" variant="contained" style={{ backgroundColor: '#553C6B', color: '#EBD3AE' }}>
+    Submit
+</Button>
+
+</form>
     )
 }
 

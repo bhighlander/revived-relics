@@ -60,26 +60,26 @@ body {
     justify-content: flex-start;
   }
   .slider-container {
-    height: 50vh; /* Allow the slider to take up more than the full viewport height */
-    max-width: none; /* Remove the maximum height restriction */
-    overflow: visible; /* Allow overflow so that slides can go off the screen */
+    height: 50vh;
+    max-width: none;
+    overflow: visible;
     width: 100vh;
     object-position: right;
   }
   .about-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px;
+    flex-direction: column;
+  }
+  .profile-photo {
+    width: 106px !important;
+    height: auto;
   }
   .contact-page {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px;
-  }
-  .contact-logo {
-    display: none;
+    width: 100% !important;
   }
 
+  .contact-info {
+    display: none;
+  }
 }
 
 .home-body {
@@ -128,14 +128,28 @@ main {
 
 .about-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
   background-color: #B7ACC0;
   color: #553C6B;
   padding: 20px;
   border-radius: 10px;
   max-width: 100%;
   margin: 0 auto;
+}
+
+.about-text {
+  flex: 3;
+}
+
+.profile-photo {
+  float: right;
+  margin: 1rem;
+  shape-outside: circle(100%);
+  border-radius: 3%;
+  height: 25%;
+  width: 25%;
 }
 
 .contact-price-container {
@@ -158,7 +172,7 @@ main {
   margin: 0 auto;
   padding: 20px;
   max-width: 100%;
-  width: 100%;
+  width: 75%;
   height: 100%;
 }
 

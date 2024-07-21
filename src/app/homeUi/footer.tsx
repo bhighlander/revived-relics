@@ -1,4 +1,5 @@
 'use client';
+import { Typography } from "@mui/material";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -25,8 +26,10 @@ export default function Footer() {
 
   return (
     <div className="__footer-background__ footer flex flex-col md:flex-row justify-between text-white p-4 fixed bottom-0 left-0 w-full z-10">
-      <div className="__contact-info__ flex space-x-4">
+      <div className="contact-info flex flex-col space-x-4 items-start">
         <Link href="/about">Contact Info</Link>
+        <p>Anne-Marie Narey</p>
+        <Link href="mailto:nareyannemarie@gmail.com">nareyannemarie@gmail.com</Link>
       </div>
 
       {/* Right section for Get in Touch and form */}
