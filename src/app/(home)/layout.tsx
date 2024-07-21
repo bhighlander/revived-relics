@@ -24,8 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <>
     <html lang="en">
-      <head></head>
+      <head>
+        <title>Revived Relics</title>
+      </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <div className="home-body flex-grow">
           <div className="navbar-container">
@@ -44,5 +47,6 @@ export default function RootLayout({
         </footer>
       </body>
     </html>
+    </>
   );
 }

@@ -59,25 +59,32 @@ const handleChange = (event: { target: { name: any; value: any; }; }) => {
             value={formData.description}
             onChange={handleChange}
         />
-        <input
-            accept="image/*"
-            style={{ display: 'none' }}
-            id="image-upload"
-            type="file"
-            name="image"
-        />
-        <label htmlFor="image-upload">
+        {/* disabled mui image upload button until Choose File button can be restyled */}
+        {/* <label htmlFor="image-upload">
             <Button variant="contained" color="primary" component="span">
                 Upload Image
             </Button>
-        </label>
+        </label> */}
+        <div>
+        <label htmlFor="file">Choose an image to upload</label>
+        <br />
+        <input
+            accept="image/*"
+            // style={{ display: 'none' }}
+            id="image-upload"
+            type="file"
+            name="image"
+            placeholder="Upload Image"
+        />
+        </div>
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_template" value="table" />
     <br />
     <br />
-    <Button type="submit" variant="contained" color="secondary">
-            Submit
-        </Button>
+    <Button type="submit" variant="contained" style={{ backgroundColor: '#553C6B', color: '#EBD3AE' }}>
+    Submit
+</Button>
+
 </form>
     )
 }
