@@ -26,9 +26,7 @@ export default function RootLayout({
   return (
     <>
     <html lang="en">
-      <head>
-        <title>Revived Relics</title>
-      </head>
+      <head></head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <div className="home-body flex-grow">
           <div className="navbar-container">

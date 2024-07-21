@@ -1,7 +1,9 @@
 'use client'
 
 import { storage } from '@/app/firebaseConfig';
+import { Typography } from '@mui/material';
 import { ref, uploadBytesResumable, UploadTaskSnapshot } from "firebase/storage";
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ChangeEvent, useState } from 'react';
 
@@ -43,6 +45,11 @@ export default function ImageUpload() {
 
   return (
     <div>
+      <Link href="/admin">
+        <Typography variant="h5">
+        Admin Home
+        </Typography>
+      </Link>
       <input type='file' onChange={handleChange} />
       <button onClick={handleUpload}>Upload</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
