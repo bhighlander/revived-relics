@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { fetchImages } from "../../../api/imageUploadManager";
 import Image from "next/image";
 import { DeleteProjectButton } from "../adminComponents/deleteProjectButton";
+import Link from "next/link";
+import { Typography } from "@mui/material";
 
 
 export default function AllProjectsPage() {
@@ -28,7 +30,12 @@ export default function AllProjectsPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">All projects</h1>
+      <h1 className="text-2xl font-bold mb-4">Current projects</h1>
+      <Link href="/admin">
+      <Typography variant="h5">
+      Admin Home
+      </Typography>
+      </Link>
       <div className="grid grid-cols-3 gap-4">
         {images.map((imageName, index) => (
           <div key={index} className="max-w-xs">
