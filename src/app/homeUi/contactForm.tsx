@@ -29,7 +29,7 @@ const handleChange = (event: { target: { name: any; value: any; }; }) => {
 };
 
     return (
-<form method="POST" action="https://formsubmit.co/bhighlandcode@gmail.com" encType="multipart/form-data">
+<form method="POST" action="https://formsubmit.co/nareyannemarie@gmail.com" encType="multipart/form-data">
 <TextField
             name="name"
             label="Name"
